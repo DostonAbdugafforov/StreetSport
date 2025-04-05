@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Stadium
+from .serializers import StadiumSerializer
+
+
+class StadiumViewSet(viewsets.ModelViewSet):
+    queryset = Stadium.objects.all()
+    serializer_class = StadiumSerializer
