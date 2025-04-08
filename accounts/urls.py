@@ -1,12 +1,8 @@
-from django.urls import path, include
-from rest_framework import routers
-
-from .views import CustomUserViewSet
-
-router = routers.DefaultRouter()
-router.register(r'users', CustomUserViewSet)
-
+from django.urls import path
+from .views import SignUpView, ProfileView, PasswordChangeView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('signup/', SignUpView.as_view(), name='signup'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('password-change/', PasswordChangeView.as_view(), name='password-change'),
 ]
