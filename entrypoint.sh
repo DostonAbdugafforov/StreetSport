@@ -14,7 +14,7 @@ python3 manage.py makemigrations
 echo "Migrations bajarilmoqda..."
 python3 manage.py migrate
 
-# Gunicorn yordamida serverni ishga tushirish
+# Serverni ishga tushirish
 echo "Server ishga tushirilmoqda..."
 python3 manage.py runserver 0.0.0.0:8000
 
