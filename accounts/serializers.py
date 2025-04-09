@@ -18,11 +18,13 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'role': {'read_only': True}}
 
     def create(self, validated_data):
+        password = validated_data.pop('password')
         user = User.objects.create_user(
             email=validated_data['email'],
-            name=validated_data['username'],
+            username=validated_data['username'],
             phone=validated_data.get('phone', ''),
-            password=validated_data['password'],
             role=UserRole.USER
         )
+        user.set_password(password)
+        user.save()
         return user
