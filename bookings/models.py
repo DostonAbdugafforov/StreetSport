@@ -29,4 +29,4 @@ class Booking(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.user.name} booked {self.stadium.name} on {self.date}"
+        return f"{self.user.username} booked {self.stadium.name} on {self.date}"
