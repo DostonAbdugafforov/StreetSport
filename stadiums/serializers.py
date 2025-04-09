@@ -34,13 +34,12 @@ class StadiumSerializer(serializers.ModelSerializer):
     images = StadiumImageSerializer(many=True, read_only=True)
     sport_types = SportTypeSerializer(many=True, read_only=True)
     amenities = AmenitySerializer(many=True, read_only=True)
-    owner_details = UserSerializer(source='owner', read_only=True)
     managers = StadiumManagerSerializer(many=True, read_only=True)
 
     class Meta:
         model = Stadium
         fields = ('id', 'name', 'address', 'description', 'price_per_hour',
-                  'opening_time', 'closing_time', 'owner', 'owner_details',
+                  'opening_time', 'closing_time', 'owner',
                   'sport_types', 'amenities', 'images', 'managers',
                   'created_at', 'updated_at')
-        read_only_fields = ('id', 'created_at', 'updated_at', 'owner_details')
+        read_only_fields = ('id', 'created_at', 'updated_at')

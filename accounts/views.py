@@ -11,7 +11,7 @@ from .serializers import UserSerializer, UserRegisterSerializer
 class SignUpView(APIView):
     @swagger_auto_schema(request_body=UserRegisterSerializer)
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        serializer = UserRegisterSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "User created successfully"}, status=status.HTTP_201_CREATED)
