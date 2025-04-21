@@ -2,8 +2,6 @@ from decimal import Decimal
 
 from rest_framework import serializers
 from .models import Booking
-from stadiums.serializers import StadiumSerializer
-from accounts.serializers import UserSerializer
 
 
 class BookingSerializer(serializers.ModelSerializer):
